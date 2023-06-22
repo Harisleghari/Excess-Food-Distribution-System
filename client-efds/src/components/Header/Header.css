@@ -1,0 +1,13 @@
+.logo-size {
+    width: 45%;
+}
+
+.login-btn {
+    color: #E385A7;
+    border-color: #E385A7;
+}
+
+.login-btn:hover {
+    background-color: #eb9cb9;
+    border-color: #E385A7;
+}
