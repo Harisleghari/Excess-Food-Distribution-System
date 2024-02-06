@@ -1,0 +1,26 @@
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 62vh;
+}
+.login-t{
+    color: #E385A7;
+    text-align: center;
+}
+
+.login-b{
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.set{
+    padding: 0.5rem 1rem;
+}
+
+@media only screen and (max-width: 425px) {
+    .login-c{
+        width: 20rem;
+    }
+}

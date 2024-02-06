@@ -1,0 +1,42 @@
+.Intro{
+    margin: 0.5rem 3rem;
+    display: flex;
+    justify-content: space-around;
+}
+.Intro-1{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
+    max-width: 40vw;
+    align-items: flex-start;
+    justify-content: center;
+}
+.Intro-para{
+    color: #868E96;
+}
+.Intro-pic{
+    padding: 1rem;
+    max-width: 55vw;
+    max-height: 45vh;
+}
+
+@media only screen and (max-width: 425px) {
+    .Intro{
+        flex-direction: column-reverse;
+        margin: 0.5rem 1rem;
+        align-items: center;
+    }
+    .Intro-1{
+        max-width: 20rem;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+    }
+    .Intro-pic{
+        max-width: 40rem;
+        max-height: 25rem;
+    }
+    .Intro-para{
+        text-align: justify;
+    }
+}

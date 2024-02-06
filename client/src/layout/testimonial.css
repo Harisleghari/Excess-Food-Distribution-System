@@ -1,0 +1,30 @@
+.test{
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.test-p{
+    padding: 0.4rem 5rem;
+    background-color: #E385A7;;
+    color: #FFFFFF;
+}
+
+.test-h{
+    margin: 1rem;
+    margin-bottom: 3.5rem;
+}
+
+.test-pic{
+    padding: 0 0.5rem;
+    width: 25vw;
+}
+
+@media only screen and (max-width: 425px) {
+    .test-pic {
+    padding-top: 1rem;
+    width  : 25rem !important;
+    }
+}

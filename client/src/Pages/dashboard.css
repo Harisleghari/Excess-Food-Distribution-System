@@ -1,0 +1,17 @@
+.sss{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.sidebar-1{
+    display: flex;
+    border:  1px solid #9A9A9A;
+    max-width: 98vw;
+}
+.sidebar-2{
+    height: 53.2vh;
+    border: 1px solid #9A9A9A;
+    border-top: none;
+    width: 98vw;
+}

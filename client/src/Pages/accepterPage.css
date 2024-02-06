@@ -1,0 +1,31 @@
+.Accepet-1{
+    max-width: 100vw;
+}
+
+.Accepet-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5rem;
+    text-align: center;
+}
+
+.Accepet-2 h3{
+    color: #495057;
+}
+
+
+@media only screen and (max-width: 425px) {
+    .Accepet-2{
+        margin: 2rem;
+    }
+    .Accepet-2 h3{
+        margin-top: 1rem;
+    }
+    .Accepet-2 p{
+        text-align: justify;
+        max-height: 10rem;
+        overflow-y: scroll;
+        margin: 2rem 0;
+    }
+}

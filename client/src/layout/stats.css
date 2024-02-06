@@ -1,0 +1,46 @@
+.stat{
+    background-color: #FCAECA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem 5rem;
+}
+.stat-1{
+    display: flex;
+    justify-content: space-around;
+}
+.card-s{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem 3rem;
+    margin: 1rem;
+    width: 20vw;
+    text-align: center;
+}
+.p-s{
+    color: #0C8198;
+}
+.pn-s{
+    color: #ADB5BD;
+}
+.stat-h{
+    text-align: center;
+    width: 20rem;
+}
+
+@media only screen and (max-width: 425px) {
+    .stat{
+        padding: 2rem;
+    }
+    .card-s{
+        height: 9rem;
+    }
+    .card-s img{
+        margin-top: 1.25rem;
+        height: 3rem;
+    }
+}

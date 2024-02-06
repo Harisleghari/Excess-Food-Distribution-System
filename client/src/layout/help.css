@@ -1,0 +1,39 @@
+.back{
+    margin: 1rem 0;
+    background-color: #333333;
+}
+
+.help{
+    padding: 1rem 0;
+    background-image: url("../assets/volBackground.png");
+    background-size: auto;
+    display: flex;
+    flex-direction: column;
+    opacity: 0.75;
+    justify-content: center;
+}
+.help-1{
+    margin-left: 5rem ;
+    display: flex;
+    opacity: 1 !important;
+    padding: 5rem;
+    max-width: 60vw;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.help-h{
+    color: #ffffff;
+}
+.help-p{
+    color: #ffffff;
+    text-align: justify;
+}
+
+@media only screen and (max-width: 425px) {
+    .help-1{
+        padding: 2rem;
+        margin-left: 1rem;
+        max-width: 30rem;
+        align-items: center;
+    }
+}

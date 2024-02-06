@@ -1,0 +1,50 @@
+.header{
+    background-color: #FDFCFC;
+    box-shadow: 0px 2px 8px 0px #00000040;
+    padding: 0 5rem;
+}
+.Header-Size{
+    max-width: 70vw;
+}
+.button{
+    color: #E385A7;
+    display        : flex;
+    width          : 10rem;
+    height         : 3rem;
+    padding        : 0.625rem 1.25rem;
+    justify-content: center;
+    align-items    : center;
+    gap            : 0.5rem;
+    flex-shrink    : 0;
+    border-radius: 0.625rem;
+    border       : 1px solid #E385A7;
+}
+
+@media only screen and (min-width : 1400px) {
+    .bar {
+        margin-left    : 30%;
+    }
+}
+
+@media only screen and (min-width : 990px) {
+    .bar {
+        width: 75vw;
+        display        : flex;
+        align-items    : center;
+        justify-content: space-evenly;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .header{
+        padding: 0 2rem;
+    }
+    .headerImg{
+        width: 12rem;
+    }
+    .headerBtn{
+        margin-left: 5rem;
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,32 @@
+.vol-h{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.vol-1{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 2rem;
+    margin-bottom: 4rem;
+}
+
+.card-vol{
+    text-align: justify;
+    width: 20vw;
+}
+.test-pic{
+    padding: 0 0.5rem;
+    width: 25vw;
+}
+
+@media only screen and (max-width: 425px) {
+    .vol-h{
+        margin: 0 1rem;
+    }
+    .vol-1{
+        flex-direction: column;
+    }
+    .card-vol{
+        width: 20rem;
+    }
+}
