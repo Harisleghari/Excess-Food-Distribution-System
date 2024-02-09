@@ -2,8 +2,8 @@ import './help.css';
 import Button from '../components/button';
 
 
-const Help = ()=>{
-    return(
+const Help = () => {
+    return (
         <div className='back'>
             <div className='help'>
                 <div className='help-1'>
@@ -16,7 +16,7 @@ const Help = ()=>{
                     <p className='help-p'>
                         We believe that everyone deserves access to fresh, healthy food. That's why we've created a platform that connects individuals and businesses with excess food to those who need it most. Our mission is to reduce food waste while addressing food insecurity in our communities.
                     </p>
-                    <Button text={["Join as Volunteer"]}   />
+                    <Button text={["Join as Volunteer", '/login']} />
                 </div>
             </div>
         </div>

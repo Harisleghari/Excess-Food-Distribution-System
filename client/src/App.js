@@ -20,6 +20,7 @@ import Header from "./components/header";
 import Profile from './layout/profile';
 import Statistics from './layout/statistics';
 import Badges from './layout/badges';
+// import CustomGPTBot from './components/customGptBot';
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
             </>
           )}
         </Routes>
+        {/* <CustomGPTBot /> */}
         <Footer />
       </Router>
     </div>

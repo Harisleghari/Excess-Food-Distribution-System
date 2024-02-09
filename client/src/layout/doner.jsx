@@ -10,9 +10,9 @@ import { CiLocationOn } from 'react-icons/ci';
 import Button from '../components/button';
 
 
- 
-const Doner= ()=>{
-    return(
+
+const Doner = () => {
+    return (
         <>
             <div className='don'>
                 <div className='doner-t'>
@@ -26,9 +26,9 @@ const Doner= ()=>{
                             <Card.Title>Spring Roll</Card.Title>
                             <Card.Text>
                                 <div className='card-inner'>
-                                    <p>user</p>
-                                    <p><CiLocationOn/>distance</p>
-                                    <p>time</p>
+                                    <p>Hamza</p>
+                                    <p><CiLocationOn />1km</p>
+                                    <p>30min</p>
                                 </div>
                             </Card.Text>
                         </Card.Body>
@@ -39,9 +39,9 @@ const Doner= ()=>{
                             <Card.Title>Mixed Salad</Card.Title>
                             <Card.Text>
                                 <div className='card-inner'>
-                                    <p>user</p>
-                                    <p><CiLocationOn/>distance</p>
-                                    <p>time</p>
+                                    <p>Ahmed</p>
+                                    <p><CiLocationOn />0.5km</p>
+                                    <p>1h</p>
                                 </div>
                             </Card.Text>
                         </Card.Body>
@@ -52,9 +52,9 @@ const Doner= ()=>{
                             <Card.Title>Chowmein</Card.Title>
                             <Card.Text>
                                 <div className='card-inner'>
-                                    <p>user</p>
-                                    <p><CiLocationOn/>distance</p>
-                                    <p>time</p>
+                                    <p>Aqsa</p>
+                                    <p><CiLocationOn />2km</p>
+                                    <p>2h</p>
                                 </div>
                             </Card.Text>
                         </Card.Body>
@@ -67,9 +67,9 @@ const Doner= ()=>{
                             <Card.Title>Pizza</Card.Title>
                             <Card.Text>
                                 <div className='card-inner'>
-                                    <p>user</p>
-                                    <p><CiLocationOn/>distance</p>
-                                    <p>time</p>
+                                    <p>Eshal</p>
+                                    <p><CiLocationOn />1.5km</p>
+                                    <p>3h</p>
                                 </div>
                             </Card.Text>
                         </Card.Body>
@@ -80,9 +80,9 @@ const Doner= ()=>{
                             <Card.Title>Fish</Card.Title>
                             <Card.Text>
                                 <div className='card-inner'>
-                                    <p>user</p>
-                                    <p><CiLocationOn/>distance</p>
-                                    <p>time</p>
+                                    <p>Aiza</p>
+                                    <p><CiLocationOn />1km</p>
+                                    <p>3h</p>
                                 </div>
                             </Card.Text>
                         </Card.Body>
@@ -93,9 +93,9 @@ const Doner= ()=>{
                             <Card.Title>Barger</Card.Title>
                             <Card.Text>
                                 <div className='card-inner'>
-                                    <p>user</p>
-                                    <p><CiLocationOn/>distance</p>
-                                    <p>time</p>
+                                    <p>Mohsin</p>
+                                    <p><CiLocationOn />2km</p>
+                                    <p>4h</p>
                                 </div>
                             </Card.Text>
                         </Card.Body>
@@ -103,7 +103,7 @@ const Doner= ()=>{
                 </div>
             </div>
             <div className='b'>
-                <Button text={['Show More ...']} href="/doner" />
+                <Button text={['Show More ...', '/login']}/>
             </div>
         </>
     )

@@ -1,20 +1,21 @@
 import './headerUser.css'
 import './header.css'
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import companyLogo from '../assets/brand-name.jpg';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import { PopupMenu } from "react-simple-widgets";
 
 const HeaderUser = () => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
+    // const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const toggleDropdown = () => {
-        setDropdownOpen(!dropdownOpen);
-    };
+    // const toggleDropdown = () => {
+    //     setDropdownOpen(!dropdownOpen);
+    // };
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary header" sticky="top" >
-                <Navbar.Brand href="/">
+                <Navbar.Brand>
                     <img className='headerImg' src={companyLogo} width="200" height="65" alt="EFDS" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -25,25 +26,61 @@ const HeaderUser = () => {
                             <Nav.Link className='bar-h' href="/accepter">Get Involved</Nav.Link>
                             <Nav.Link className='bar-h' href="/volunteer">Volunteer</Nav.Link>
                             {/* <Nav.Link href="/dashboard"><img className='bar-i' src="https://cdn-icons-png.freepik.com/256/3237/3237472.png" alt="pic" /></Nav.Link> */}
-                            <div className="user-dropdown">
-                                <img
-                                    className='bar-i'
-                                    src="https://cdn-icons-png.freepik.com/256/3237/3237472.png"
-                                    alt='Profile'
-                                    onClick={toggleDropdown}
-                                />
-                            </div>
-                            {dropdownOpen && (
-                                    <div className="dropdown-menu">
-                                        <ul>
-                                            <li><a className="dropdown-item" href="/myProfile">My Profile</a></li>
-                                            <li><a className="dropdown-item" href="/myDashboard">My Dashboard</a></li>
-                                            <li><hr className="dropdown-divider" /></li>
-                                            <li><a className="dropdown-item" href="/signOut">Signout</a></li>
-                                        </ul>
-                                    </div>
-                                )}
                             {/* <Nav.Link className='bar-b' href="/donation">Donate</Nav.Link> */}
+                            <PopupMenu>
+                                <img className='bar-i' src="https://cdn-icons-png.freepik.com/256/3237/3237472.png" alt="pic" />
+
+                                <div className="card text-start">
+                                    <div className="card-body px-4 py-4">
+                                        <div id="circle-avatar" className="text-center mx-auto mb-4">
+                                            <img className='bar-i' src="https://cdn-icons-png.freepik.com/256/3237/3237472.png" alt="pic" />
+                                        </div>
+
+                                        <h5 className="text-center mb-0">Haris Leghari</h5>
+                                        <p className="text-center mb-2">harisleghari61@gmail.com</p>
+
+                                        <hr />
+
+                                        <p
+                                            className="mb-0"
+                                            style={{ color: "#bebebe", fontWeight: "bold", fontSize: 12 }}
+                                        >
+                                            ROLES
+                                        </p>
+                                        <p style={{ fontSize: 12 }}>
+                                            {["Donor", "Accepter", "Volunteer"].join(
+                                                ", "
+                                            )}
+                                        </p>
+
+                                        <hr className="mb-0" style={{ margin: "0 -24px 0" }} />
+
+                                        <div
+                                            className="list-group list-group-flush"
+                                            style={{ margin: "0 -24px 0" }}
+                                        >
+                                            <button className="list-group-item list-group-item-action px-4">
+                                                <small>Profile</small>
+                                            </button>
+                                            <button className="list-group-item list-group-item-action px-4">
+                                                <small>Stats</small>
+                                            </button>
+                                        </div>
+
+                                        <hr style={{ margin: "0 -24px 24px" }} />
+
+                                        <div className="d-grid">
+                                            <Nav.Link className="bar-h" href="/login" onClick={() => {
+                                                localStorage.clear();
+                                            }}>
+                                                <button className="btn btn-secondary">
+                                                    <small>Logout</small>
+                                                </button>
+                                            </Nav.Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </PopupMenu>
                         </div>
                     </Nav>
                 </Navbar.Collapse>

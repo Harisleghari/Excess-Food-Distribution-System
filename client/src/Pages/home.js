@@ -7,7 +7,6 @@ import Rewards from '../layout/rewards';
 import Testimonial from '../layout/testimonial';
 import Stats from '../layout/stats';
 import Volunteer from '../layout/volunteer';
-import Chatbot from '../components/chatBot';
 
 const Home = () => {
   return (
@@ -20,7 +19,6 @@ const Home = () => {
       <Volunteer />
       <Stats />
       <Testimonial />
-      <Chatbot/>
     </>
   );
 };
