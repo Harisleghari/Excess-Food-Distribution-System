@@ -20,7 +20,7 @@ import Header from "./components/header";
 import Profile from './layout/profile';
 import Statistics from './layout/statistics';
 import Badges from './layout/badges';
-// import CustomGPTBot from './components/customGptBot';
+import UserHome from './Pages/userHome';
 
 
 function App() {
@@ -30,11 +30,9 @@ function App() {
       <Router>
         {isUserLoggedIn ? <HeaderUser /> : <Header />}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
           {isUserLoggedIn ? (
             <>
+              <Route path="/userHome" element={<UserHome />} />
               <Route path="/doner" element={<DonerPage />} />
               <Route path="/donation" element={<Donation />} />
               <Route path="/accepter" element={<Accepter />} />
@@ -48,6 +46,9 @@ function App() {
             </>
           ) : (
             <>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
               <Route path="/doner" element={<Login />} />
               <Route path="/donation" element={<Login />} />
               <Route path="/accepter" element={<Login />} />
@@ -56,7 +57,6 @@ function App() {
             </>
           )}
         </Routes>
-        {/* <CustomGPTBot /> */}
         <Footer />
       </Router>
     </div>

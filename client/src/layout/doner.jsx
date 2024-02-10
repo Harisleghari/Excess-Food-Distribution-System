@@ -25,7 +25,7 @@ const Doner = () => {
                         <Card.Body>
                             <Card.Title>Spring Roll</Card.Title>
                             <Card.Text>
-                                <div className='card-inner'>
+                                <div className='card-inner d-flex justify-content-between align-items-center'>
                                     <p>Hamza</p>
                                     <p><CiLocationOn />1km</p>
                                     <p>30min</p>
@@ -103,7 +103,7 @@ const Doner = () => {
                 </div>
             </div>
             <div className='b'>
-                <Button text={['Show More ...', '/login']}/>
+                <Button text={['Show More ...', '/login']} />
             </div>
         </>
     )

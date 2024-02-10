@@ -5,6 +5,7 @@ import companyLogo from '../assets/brand-name.jpg';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { PopupMenu } from "react-simple-widgets";
+import { Link } from 'react-router-dom';
 
 const HeaderUser = () => {
     // const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -15,7 +16,7 @@ const HeaderUser = () => {
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary header" sticky="top" >
-                <Navbar.Brand>
+                <Navbar.Brand href="/userHome">
                     <img className='headerImg' src={companyLogo} width="200" height="65" alt="EFDS" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -23,7 +24,7 @@ const HeaderUser = () => {
                     <Nav className="me-auto Header-Size">
                         <div className='bar'>
                             <Nav.Link className='bar-h' href="/doner">Donate</Nav.Link>
-                            <Nav.Link className='bar-h' href="/accepter">Get Involved</Nav.Link>
+                            <Nav.Link className='bar-h' href="/accepter">Accept</Nav.Link>
                             <Nav.Link className='bar-h' href="/volunteer">Volunteer</Nav.Link>
                             {/* <Nav.Link href="/dashboard"><img className='bar-i' src="https://cdn-icons-png.freepik.com/256/3237/3237472.png" alt="pic" /></Nav.Link> */}
                             {/* <Nav.Link className='bar-b' href="/donation">Donate</Nav.Link> */}
@@ -59,6 +60,12 @@ const HeaderUser = () => {
                                             className="list-group list-group-flush"
                                             style={{ margin: "0 -24px 0" }}
                                         >
+                                            <Link style={{textDecoration: 'none'}} to="/userHome">
+                                                <button className="list-group-item list-group-item-action px-4">
+                                                    <small>Home</small>
+                                                </button>
+                                            </Link>
+
                                             <button className="list-group-item list-group-item-action px-4">
                                                 <small>Profile</small>
                                             </button>

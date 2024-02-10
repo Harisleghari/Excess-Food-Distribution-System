@@ -2,8 +2,10 @@ import './signup.css';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Card,Form } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,6 +26,7 @@ function Signup() {
         localStorage.setItem("token", response.data.token)
         console.log('Registration successful');
         console.log(response)
+        navigate("/login");
       } else {
         // Handle registration failure, e.g., display an error message.
         console.error('Registration failed');

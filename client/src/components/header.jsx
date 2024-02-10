@@ -16,7 +16,7 @@ const Header = ()=>{
                     <Nav className="me-auto Header-Size">
                         <div className='bar'>
                         <Nav.Link className='bar-h' href="/doner">Donate</Nav.Link>
-                        <Nav.Link className='bar-h' href="/accepter">Get Involved</Nav.Link>
+                        <Nav.Link className='bar-h' href="/accepter">Accept</Nav.Link>
                         <Nav.Link className='bar-h' href="/volunteer">Volunteer</Nav.Link>
                         <Nav.Link className='bar-h' href="/signup">Sign up</Nav.Link>
                         <Nav.Link className="headerBtn" href="/login"><div className='button'><h>Sign In</h></div></Nav.Link>

@@ -1,7 +1,7 @@
 import './login.css';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Card, Form} from 'react-bootstrap';
+import { Card, Form } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -22,9 +22,11 @@ function Login() {
         console.log("Login successful");
         console.log(localStorage.getItem("token"));
         // Execute this code wherever you want to trigger a page reload
-        navigate("/");
+        navigate("/userHome");
+        window.location.reload();
       } else {
         // Handle login failure, e.g., display an error message.
+        // Sorry, we don't recognize that username or password. You can try again or reset your password
         console.error('Login failed');
       }
     } catch (error) {
