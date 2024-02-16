@@ -14,6 +14,7 @@ import Signup from './Pages/signup';
 import Donation from './Pages/donationPage';
 import Accepter from './Pages/accepterPage';
 import VolunteerPage from './Pages/volunteer';
+import VolunteerFormPage from './Pages/volunteerForm';
 import Accept from './Pages/acceptPage';
 import Dashboard from './Pages/dashboard';
 import Header from "./components/header";
@@ -37,6 +38,7 @@ function App() {
               <Route path="/donation" element={<Donation />} />
               <Route path="/accepter" element={<Accepter />} />
               <Route path="/volunteer" element={<VolunteerPage />} />
+              <Route path="/volunteerForm" element={<VolunteerFormPage />} />
               <Route path="/accept" element={<Accept />} />
               <Route path="/dashboard/*" element={<Dashboard />}>
                 <Route path={":"} component={<Profile />} />

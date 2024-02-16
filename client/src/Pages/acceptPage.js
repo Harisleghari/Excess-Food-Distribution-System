@@ -18,12 +18,12 @@ const Accept = ()=>{
               <b>Find Food</b>
             </h1>
             <p>
-              Looking for assistance in finding food? Rizq Bachao can help. We
+              Looking for assistance in finding food? EFDS can help. We
               work with a variety of food donors and volunteers to connect those
               in need with fresh, nutritious meals.
               <br />
               Don't let hunger get in the way of living a healthy, active
-              lifestyle. Get started with Rizq Bachao today and find the food
+              lifestyle. Get started with EFDS today and find the food
               you need.
             </p>
           </div>
