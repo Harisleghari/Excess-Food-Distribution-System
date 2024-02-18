@@ -1,0 +1,41 @@
+.load-more-div-a {
+  display: flex;
+}
+
+.load-more-div-b {
+  justify-content: center;
+}
+
+.load-more-btn-a {
+  color: #fff;
+  background-color: #002f34;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  height: 48px;
+  max-height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+}
+
+.load-more-btn-a.load-more-btn-b {
+  color: #fff;
+  fill: #fff;
+  background-color: #e385a7;
+}
+
+.load-more-btn-a.load-more-btn-b:hover {
+  background: #ebb5c9;
+  color: #ffffff;
+}
+
+.load-more-span-b {
+  font-weight: 700;
+}

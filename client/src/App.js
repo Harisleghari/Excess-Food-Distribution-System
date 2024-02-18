@@ -22,6 +22,7 @@ import Profile from './layout/profile';
 import Statistics from './layout/statistics';
 import Badges from './layout/badges';
 import UserHome from './Pages/userHome';
+import ListPage from './components/ListPage';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           {isUserLoggedIn ? (
             <>
               <Route path="/userHome" element={<UserHome />} />
+              <Route path="/list/:id" element={<ListPage />} />
               <Route path="/doner" element={<DonerPage />} />
               <Route path="/donation" element={<Donation />} />
               <Route path="/accepter" element={<Accepter />} />

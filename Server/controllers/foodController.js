@@ -36,7 +36,7 @@ function foodController() {
                     };
                 }
                 await newFood.save();
-                res.status(201).json({ success: true, food: getImg(newFood) });
+                res.status(200).json({ success: true, food: getImg(newFood) });
             } catch (error) {
                 next(error);
             }
@@ -46,7 +46,8 @@ function foodController() {
             try {
                 const foods = await Food.find();
                 const newFood = foods.map(food => getImg(food));
-                res.status(200).json({ success: true, count: foods.length, foods: newFood });
+                // res.status(200).json({ success: true, count: foods.length, foods: newFood });
+                res.status(200).json( newFood );
             } catch (error) {
                 next(error);
             }

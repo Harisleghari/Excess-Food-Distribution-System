@@ -3,6 +3,7 @@ import donation from '../assets/donation.png';
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Donation =()=>{
 
@@ -10,23 +11,29 @@ const Donation =()=>{
     const [food, setFood] = useState("");
     const [prefTime, setPrefTime] = useState("");
     const [quantity, setQuantity] = useState("");
-    const [pic, setPic] = useState([]);
-
+    // const [pic, setPic] = useState([]);
+    const navigate = useNavigate();
+    const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzMxMWRmZGQxMDZmY2JjZDAwZTJjZCIsImlhdCI6MTcwODI0MDA4MSwiZXhwIjoxNzA4NDEyODgxfQ.ZBt11EF3GMFfjj6V0vSABmP824QrNN0UuWT5mv-FXJQ";
     const createDonation = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/food/create", pic,
+          "http://localhost:5000/api/food/create",
           {
             pickup,
             food,
             quantity,
             prefTime,
+          }, {
+            headers: {
+                Authorization: `Bearer ${authToken}` // Include JWT token in the Authorization header
+            }
           }
         );
 
         if (response.status === 200) {
           // Registration successful, you can redirect or perform other actions here.
           console.log("Registration successful");
+          navigate("/userHome");
         } else {
           // Handle registration failure, e.g., display an error message.
           console.error("Registration failed");
@@ -90,8 +97,8 @@ const Donation =()=>{
                   className="form-feild"
                   type="file"
                   onChange={(e) => {
-                    const [file] = e.target.files;
-                    setPic((pic) => [...pic, file]);
+                    // const [file] = e.target.files;
+                    // setPic((pic) => [...pic, file]);
                   }}
                 />
               </Form.Group>

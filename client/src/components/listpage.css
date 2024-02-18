@@ -1,0 +1,28 @@
+.wallpaper-ad-body {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wallpaper-ad-body-1-a {
+  display: flex;
+}
+
+.wallpaper-ad-body-1-b {
+  flex: 1;
+}
+
+.wallpaper-ad-body-2-a {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: max-width 0.25s ease-in;
+}
+
+.wallpaper-ad-body-2-b {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

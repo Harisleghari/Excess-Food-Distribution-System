@@ -1,0 +1,42 @@
+/* for-Row2/Seller-Description */
+.box {
+  color: #fff;
+  background-color: #002f34;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  height: 48px;
+  width: 100%;
+}
+
+/* Posted Section */
+.box8 {
+  font-size: 34px;
+}
+.box9 {
+  color: #002f34;
+  font-size: 22px;
+}
+.box10 {
+  color: #3a77ff;
+}
+.box1 {
+  position: relative;
+}
+.box2:after {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  content: "";
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  padding-bottom: 30%;
+  background-color: rgba(200, 248, 246, 0.5);
+  border: 0.1rem solid #23e5db;
+}
+.box5 {
+  font-size: 20px;
+  font-weight: 700;
+  border: 1px solid #fff !important;
+  text-decoration: none;
+}
