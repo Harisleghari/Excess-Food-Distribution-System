@@ -63,9 +63,9 @@ const CardDonor = (props) => {
                   <Card.Title>{items.food}</Card.Title>
                   <Card.Text>
                     <div className='card-inner d-flex justify-content-between align-items-center'>
-                      <p>Hamza</p>
-                      <p><CiLocationOn />1km</p>
-                      <p>30min</p>
+                      <p><CiLocationOn />{items.pickup}</p>
+                      {/* <p><CiLocationOn />1km</p> */}
+                      <p>{items.prefTime}</p>
                     </div>
                   </Card.Text>
                 </Card.Body>

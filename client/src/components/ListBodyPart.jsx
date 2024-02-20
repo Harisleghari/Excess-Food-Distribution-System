@@ -7,63 +7,14 @@ const ListBodyPart = (props) => {
     <div>
       <div className="container-fluid">
         <div className="row m-3">
-          <div className="col-xxl-7 col-xl-7 col-lg-7 col-md-7 col-sm-12 bg-dark">
-            <div
-              id="carouselExampleControls"
-              className="carousel slide"
-              data-bs-ride="carousel"
-            >
-              <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <img
-                    src={props.detailList.image}
-                    className="d-block w-100"
-                    alt="..."
-                    height="500px"
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src={props.detailList.image}
-                    className="d-block w-100"
-                    alt="..."
-                    height="500px"
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src={props.detailList.image}
-                    className="d-block w-100"
-                    alt="..."
-                    height="500px"
-                  />
-                </div>
-              </div>
-              <button
-                className="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev"
-              >
-                <span
-                  className="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span className="visually-hidden">Previous</span>
-              </button>
-              <button
-                className="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide="next"
-              >
-                <span
-                  className="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span className="visually-hidden">Next</span>
-              </button>
-            </div>
+          <div className="col-xxl-7 col-xl-7 col-lg-7 col-md-7 col-sm-12 bg-dark" height="200px">
+            <img
+              src={props.detailList.image}
+              className="d-block w-100"
+              alt="..."
+              height="100%"
+              width="100%"
+            />
           </div>
 
           {/*row 2/ right-Side*/}
@@ -72,7 +23,6 @@ const ListBodyPart = (props) => {
               <div className="border p-4 w-100 rounded">
                 <div className="d-flex justify-content-between">
                   <div>
-                    {" "}
                     <b>
                       <span className="fw-bold box8">
                         Rs {props.detailList.price}
@@ -81,22 +31,22 @@ const ListBodyPart = (props) => {
                   </div>
                   <div>
                     <img
-                      src="https://www.olx.com.pk/assets/iconShare_noinline.41d8fa8326fea7b27bc24d3eca8b598a.svg"
+                      src="#"
                       alt="icon share"
                     />
-                    
+
                   </div>
                 </div>
                 <p className="text-secondary">{props.detailList.description}</p>
-                {/* <small className="text-secondary">
-                  Bahria Town Phase 8 - Bahria Orchard, Rawalpindi
-                </small> */}
+                <small className="text-secondary">
+                {props.detailList.pickup}
+                </small>
               </div>
 
               {/*Row2/ Seller Description*/}
               <div className="border p-4 rounded  w-100 mt-5">
                 <span className=" fw-light box9">
-                  <strong>Seller Description</strong>
+                  <strong>Donor Description</strong>
                 </span>
                 <div className="d-flex mt-3 mb-3">
                   <div className="m-1">
@@ -109,7 +59,7 @@ const ListBodyPart = (props) => {
                   </div>
                   <div className="m-2 fs-3 fw-normal text-secondary">
                     <span className="fs-3 fw-normal text-secondary">
-                      Haris Leghari
+                      {props.detailList.description}
                     </span>
                     <p>Member since jul 2022</p>
                   </div>
@@ -125,9 +75,6 @@ const ListBodyPart = (props) => {
                     height="40px"
                   />
                   <span className="fs-3 box10">+923361414330</span>
-                  <a href="#" className="box10">
-                    <u>Hide number</u>
-                  </a>
                 </div>
               </div>
             </div>

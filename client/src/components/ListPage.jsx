@@ -18,7 +18,7 @@ const ListPage = (props) => {
     axios
       .get("http://localhost:5000/api/food/" + product)
       .then((response) => {
-        setDetailList(response.data);
+        setDetailList(response.data.food);
         // setIsLoading((isLoding = false));
       })
       .catch((e) => console.log(e));
