@@ -2,30 +2,34 @@ const { toInt } = require("validator");
 const Food = require("../models/foodModel");
 const ErrorHandler = require("../utils/ErrorHandler");
 const multer = require("multer");
+const getCoordsForAddress = require("../utils/location")
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 function foodController() {
     const getImg = (food) => {
-                    const foodObject = food.toObject({ virtuals: true });
-                    if (foodObject.image) {
-                        foodObject.image = foodObject.imageBase64;
-                        delete foodObject.imageBase64; // Optional: Remove the imageBase64 property if you don't want it in the response
-                    }
-                    return foodObject;
-                }
+        const foodObject = food.toObject({ virtuals: true });
+        if (foodObject.image) {
+            foodObject.image = foodObject.imageBase64;
+            delete foodObject.imageBase64; // Optional: Remove the imageBase64 property if you don't want it in the response
+        }
+        return foodObject;
+    }
     return {
         async createFood(req, res, next) {
             try {
                 const userId = req.user._id;
                 const { pickup, food, quantity, prefTime } = req.body;
+                let coordinates;
+                try { coordinates = await getCoordsForAddress(pickup); } catch (err) { return next(err) }
                 const newFood = new Food({
                     userId,
                     pickup,
                     food,
                     quantity,
                     prefTime,
+                    location: coordinates
                 });
                 // Check if an image is uploaded
                 if (req.file) {
@@ -47,21 +51,21 @@ function foodController() {
                 const foods = await Food.find();
                 const newFood = foods.map(food => getImg(food));
                 // res.status(200).json({ success: true, count: foods.length, foods: newFood });
-                res.status(200).json( newFood );
+                res.status(200).json(newFood);
             } catch (error) {
                 next(error);
             }
         },
-        async rateFood(req,res,next){
+        async rateFood(req, res, next) {
             try {
-                const {star} = req.body;
+                const { star } = req.body;
                 const food = await Food.findById(req.params.id);
                 if (!food) {
                     return next(new ErrorHandler("Food not found", 404));
                 }
-                food.stars = toInt(star);             
+                food.stars = toInt(star);
                 await food.save();
-                res.status(200).json({ success: true, food:getImg(food) });
+                res.status(200).json({ success: true, food: getImg(food) });
             } catch (error) {
                 next(error);
             }
@@ -72,21 +76,21 @@ function foodController() {
                 if (!food) {
                     return next(new ErrorHandler("Food not found", 404));
                 }
-                res.status(200).json({ success: true, food:getImg(food) });
+                res.status(200).json({ success: true, food: getImg(food) });
             } catch (error) {
                 next(error);
             }
         },
-        async setAvailable(req,res,next){
+        async setAvailable(req, res, next) {
             try {
-                const {availbility} = req.body;
+                const { availbility } = req.body;
                 const food = await Food.findById(req.params.id);
                 if (!food) {
                     return next(new ErrorHandler("Food not found", 404));
                 }
-                food.available = availbility?? false;
+                food.available = availbility ?? false;
                 await food.save();
-                res.status(200).json({ success: true, food:getImg(food) });
+                res.status(200).json({ success: true, food: getImg(food) });
             } catch (error) {
                 next(error);
             }

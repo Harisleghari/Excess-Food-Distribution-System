@@ -43,7 +43,7 @@ const ListBodyPart = (props) => {
                 </small>
               </div>
 
-              {/*Row2/ Seller Description*/}
+              {/*Row2/ donor Description*/}
               <div className="border p-4 rounded  w-100 mt-5">
                 <span className=" fw-light box9">
                   <strong>Donor Description</strong>
@@ -51,7 +51,7 @@ const ListBodyPart = (props) => {
                 <div className="d-flex mt-3 mb-3">
                   <div className="m-1">
                     <img
-                      src="https://www.olx.com.pk/assets/iconProfilePicture.7975761176487dc62e25536d9a36a61d.png"
+                      src="#"
                       alt=""
                       width="64px"
                       height="64px"
@@ -65,7 +65,7 @@ const ListBodyPart = (props) => {
                   </div>
                 </div>
                 <button type="submit" className="box">
-                  <span>Chat with Seller</span>
+                  <span>Chat with donor</span>
                 </button>
                 <div className="d-flex justify-content-around m-4">
                   <img
@@ -87,22 +87,22 @@ const ListBodyPart = (props) => {
         <div className="row m-3">
           <div className="col-lg-7 col-md-6 col-sm-12">
             <div className="border p-4 rounded w-100 mt-5">
-              <h3 className="fw-bold box9">Detailes</h3>
+              {/* <h3 className="fw-bold box9">Detailes</h3> */}
 
               <div className="row text-secondary">
-                <div className="col-lg-10 col-md-12 col-sm-12 d-flex justify-content-between">
-                  <p>price</p>
-                  <p>{props.detailList.price}</p>
+                {/* <div className="col-lg-10 col-md-12 col-sm-12 d-flex justify-content-between"> */}
+                  {/* <p></p> */}
+                  {/* <p>{props.detailList.price}</p> */}
                   {/* <p>type</p>
                   <p>Residential Plots</p> */}
-                </div>
-                <div className="col-lg-8 col-md-12 col-sm-12 d-flex justify-content-between">
+                {/* </div> */}
+                {/* <div className="col-lg-8 col-md-12 col-sm-12 d-flex justify-content-between"> */}
                   {/* <p>Area Unit</p>
                   <p>Marla</p>
                   <p>Area</p>
                   <p>5</p> */}
-                </div>
-                <hr />
+                {/* </div> */}
+                {/* <hr /> */}
                 <h4>
                   <b className="fw-bold box9">Description</b>
                 </h4>

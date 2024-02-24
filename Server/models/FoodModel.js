@@ -28,7 +28,7 @@ const foodSchema = new mongoose.Schema({
     },
     location: {
         lat: String,
-        long: String,
+        lng: String,
     },
     date: {
         type: Date,
