@@ -1,5 +1,5 @@
-const { toInt } = require("validator");
 const Food = require("../models/foodModel");
+const { toInt } = require("validator");
 const ErrorHandler = require("../utils/ErrorHandler");
 const multer = require("multer");
 const getCoordsForAddress = require("../utils/location")
@@ -160,6 +160,49 @@ function foodController() {
                 res.status(200).json({ success: true, image });
             });
         },
+
+        async acceptFood(req, res, next) {
+            try {
+                const { accepterLatitude, accepterLongitude, radius } = req.body;
+                // Convert latitude and longitude to numbers
+                let lat = parseFloat(accepterLatitude);
+                let lon = parseFloat(accepterLongitude);
+                let rad = parseFloat(radius);
+                console.log(lat, lon, rad);
+
+                // Query MongoDB to retrieve all donation posts
+                // const allFood = await Food.find();
+                const foods = await Food.find();
+                const newFood = foods.map(food => getImg(food));
+                console.log(newFood);
+                // Filter donation posts based on distance
+                const filteredFood = newFood.filter((post) => {
+                    // Calculate distance between accepter's location and post's location using Haversine formula
+                    const R = 6371; // Earth's radius in kilometers
+                    const dLat = (post.location.lat - lat) * Math.PI / 180;
+                    const dLon = (post.location.lng - lon) * Math.PI / 180;
+                    const a =
+                        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                        Math.cos(lat * Math.PI / 180) * Math.cos(post.location.lat * Math.PI / 180) *
+                        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                    const distance = R * c;
+                    console.log(post.location);
+
+                    // Check if distance is within the specified radius
+                    return distance <= rad;
+                });
+
+                res.json({
+                    message: "FilteredFood",
+                    filteredFood
+                });
+                next()
+            } catch (err) {
+                console.error(err);
+                res.status(500).json({ message: 'Internal server error' });
+            }
+        }
     };
 }
 

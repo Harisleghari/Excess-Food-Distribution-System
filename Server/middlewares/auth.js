@@ -88,6 +88,7 @@ exports.isAuthenticated = async (req, res, next) => {
         console.log("i am the users id", id)
 
         const user = await Users.findById(id);
+        console.log("i am the users", user)
         if (!user) {
             next(new ErrorHandler("User does not exits", 401));
             return;

@@ -1,6 +1,7 @@
 import "./accepterPage.css";
 import Img from '../assets/accepterPage.png'
 import Button from "../components/button";
+import GeolocationComponent from "../components/GeolocationComponent";
 
 
 
@@ -27,6 +28,7 @@ const Accepter = ()=>{
           </p>
           <Button text={['Find Food','accept']} />
         </div>
+        <GeolocationComponent />
       </>
     );
 }

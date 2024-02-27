@@ -28,10 +28,12 @@ const DonatedActivity = () => {
         }
     };
     useEffect(() => {
-        axios
-            // .get("http://fakestoreapi.com/products")
-            .get("http://localhost:5000/api/food/")
-            // http://localhost:5000/api/food/
+        const authToken = localStorage.getItem('token');
+        axios.get("http://localhost:5000/api/user/getFoods",{
+            headers: {
+                Authorization: `Bearer ${authToken}` // Include JWT token in the Authorization header
+            }
+        })
             .then((response) => {
                 setPost(response.data);
                 console.log(response.data);

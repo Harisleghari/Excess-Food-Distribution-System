@@ -16,5 +16,6 @@ foodRouter.delete("/delete/:id", isAuthenticated, foodController().deleteFood);
 foodRouter.post("/setAvailability/:id", isAuthenticated, foodController().setAvailable);
 foodRouter.post("/rate/:id", isAuthenticated, foodController().rateFood);
 foodRouter.post("/uploadImage", isAuthenticated, upload.single('image'), foodController().uploadImage);
+foodRouter.post("/acceptFood", foodController().acceptFood);
 
 module.exports = foodRouter;

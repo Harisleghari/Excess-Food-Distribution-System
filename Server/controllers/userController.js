@@ -3,9 +3,18 @@ const ErrorHandler = require("../utils/ErrorHandler");
 const jwtToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
+const Food = require("../models/foodModel");
 
 
 function userController() {
+    const getImg = (food) => {
+        const foodObject = food.toObject({ virtuals: true });
+        if (foodObject.image) {
+            foodObject.image = foodObject.imageBase64;
+            delete foodObject.imageBase64; // Optional: Remove the imageBase64 property if you don't want it in the response
+        }
+        return foodObject;
+    }
     return {
         async updateUser(req, res, next) {
             try {
@@ -44,11 +53,12 @@ function userController() {
         
                 // Find the food items for the specified user
                 const userFoods = await Food.find({ userId });
+                const newFood = userFoods.map(food => getImg(food));
                 if (!userFoods || userFoods.length === 0) {
                     return res.status(404).json({ success: false, message: "No food items found for the user" });
                 }
         
-                res.status(200).json({success: true, message: userFoods});
+                res.status(200).json(newFood);
         
             } catch (error) {
                 next(error);
@@ -92,8 +102,9 @@ function userController() {
                     next(new ErrorHandler("Please fill all fields", 400))
                     return;
                 }
-
+                console.log(email, password);
                 let user = await Users.findOne({ email });
+                console.log(user);
                 if (!user) {
                     next(new ErrorHandler("User does not exist", 401));
                     return;
