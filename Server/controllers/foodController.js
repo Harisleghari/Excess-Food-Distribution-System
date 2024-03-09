@@ -20,16 +20,20 @@ function foodController() {
         async createFood(req, res, next) {
             try {
                 const userId = req.user._id;
-                const { pickup, food, quantity, prefTime } = req.body;
-                let coordinates;
-                try { coordinates = await getCoordsForAddress(pickup); } catch (err) { return next(err) }
+                const { pickup, food, quantity, prefTime, phone} = req.body;
+                let locationCoordinates;
+                try { locationCoordinates = await getCoordsForAddress(pickup); } catch (err) { return next(err) }
                 const newFood = new Food({
                     userId,
                     pickup,
                     food,
                     quantity,
                     prefTime,
-                    location: coordinates
+                    location: {
+                        type: "Point",
+                        coordinates: [locationCoordinates.lng, locationCoordinates.lat]
+                    },
+                    phone
                 });
                 // Check if an image is uploaded
                 if (req.file) {
@@ -197,10 +201,43 @@ function foodController() {
                     message: "FilteredFood",
                     filteredFood
                 });
-                next()
             } catch (err) {
                 console.error(err);
                 res.status(500).json({ message: 'Internal server error' });
+            }
+        },
+        async nearestFood(req, res, next) {
+            try {
+                const { accepterLatitude, accepterLongitude } = req.body;
+
+                console.log(accepterLatitude, accepterLongitude)
+                const nearFood = await Food.aggregate([
+                    {
+                        // $geoNear: {
+                        //     near: { type: "Point", coordinates: [parseFloat(accepterLongitude), parseFloat(accepterLatitude)] },
+                        //     key: "location",
+                        //     maxDistance: parseFloat(1000) * 1609,
+                        //     distanceField: "dist.calculated",
+                        //     spherical: true
+                        // }
+
+                        $geoNear: {
+                            near: { type: "Point", coordinates: [parseFloat(accepterLongitude), parseFloat(accepterLatitude)] },
+                            key: "location",
+                            maxDistance: parseFloat(1000) * 1609,
+                            distanceField: "dist.calculated",
+                            spherical: true
+
+                        }
+                    }
+                ])
+
+                res.status(200).json(nearFood)
+            } catch (error) {
+                res.status(400).json({
+                    sucess: false,
+                    message: error.message
+                })
             }
         }
     };

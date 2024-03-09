@@ -1,0 +1,110 @@
+.a-1 {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    min-height    : 62vh;
+}
+
+.a-1-1 {
+    text-align: center;
+    padding   : 3rem;
+}
+
+.a-1-2 {
+    padding        : 0 5rem;
+    border-bottom  : 0.125rem solid #9A9A9A;
+    width          : 85vw;
+    display        : flex;
+    justify-content: center;
+    margin-bottom  : 2rem;
+}
+
+.a-1-2-btn-1 {
+    background-color       : #E385A7;
+    color                  : #FCFAFA;
+    border                 : none;
+    margin                 : 0 1rem;
+    height                 : 3rem;
+    min-width              : 7rem;
+    border-top-left-radius : 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.a-1-2-btn-2 {
+    color                  : #E385A7;
+    background-color       : #FCFAFA;
+    border                 : none;
+    margin                 : 0 1rem;
+    height                 : 3rem;
+    min-width              : 7rem;
+    border                 : 0.125rem solid #9A9A9A;
+    border-bottom          : none;
+    border-top-left-radius : 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.a-1-3 {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    color         : #343A40;
+}
+
+.a-1-3-1 {
+    display      : flex;
+    margin       : 2rem;
+    align-content: center;
+    align-items  : center;
+}
+
+.a-1-3-1 input {
+    min-height: 3rem;
+    min-width : 8rem;
+    border    : 0.125rem solid #00000080;
+}
+
+.a-1-3-1 p {
+    min-height   : 3rem;
+    min-width    : 4rem;
+    margin-bottom: 0;
+    padding      : 0 2rem;
+    border       : 0.125rem solid #00000080;
+    color        : #878787;
+    border-left  : none;
+    text-align   : center;
+    padding-top  : 0.5rem;
+}
+
+.a-1-3-2{
+    display: flex;
+    padding-bottom: 3rem;
+}
+
+.a-1-3-btn-1 {
+    color        : #FFFF;
+    border       : none;
+    border-radius: 10px;
+    background   : #E385A7;
+    min-height   : 3rem;
+    min-width    : 8rem;
+    margin-right: 0.5rem;
+}
+
+.a-1-3-btn-2 {
+    color        : #E385A7;
+    border-radius: 10px;
+    border       : 1px solid #E385A7;
+    min-height   : 3rem;
+    min-width    : 8rem;
+    margin-left: 0.5rem;
+}
+
+@media only screen and (max-width: 425px) {
+    .a-1-1 {
+        text-align: center;
+    }
+
+    .a-1-1 p {
+        text-align: justify;
+    }
+}

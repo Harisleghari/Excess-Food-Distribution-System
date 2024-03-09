@@ -1,0 +1,22 @@
+.card-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  .doner {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem;
+  }
+  
+  @media only screen and (max-width: 425px) {
+    .doner {
+      flex-direction: column;
+    }
+    .card-d {
+      width: 18rem;
+      height: 12rem;
+    }
+  }
+  
+  /* -------------------------------------------------------------------- */
+  

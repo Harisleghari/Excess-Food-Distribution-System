@@ -7,8 +7,7 @@ import { useNavigate } from "react-router-dom";
 const VolunteerFormPage = () => {
     const navigate = useNavigate();
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setphone] = useState('');
+    const [phone, setphone] = useState();
     const [address, setaddress] = useState('');
 
 
@@ -16,10 +15,9 @@ const VolunteerFormPage = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                "http://localhost:5000/api/user/register",
+                "http://localhost:5000/api/volunteer/register",
                 {
                     name: name,
-                    email: email,
                     phone: phone,
                     address: address
                 }
@@ -52,14 +50,6 @@ const VolunteerFormPage = () => {
                                 placeholder="Name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
-                            />
-                        </Form.Group>
-                        <Form.Group className="set">
-                            <Form.Control
-                                type="email"
-                                value={email}
-                                placeholder="Email"
-                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </Form.Group>
                         <Form.Group className="set">

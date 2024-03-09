@@ -260,22 +260,22 @@ function userController() {
         },
 
         //fetches data of single user based on id
-        async getSingleUser(req, res, next) {
-            try {
-                let user = await Users.findById(req.params.id);
-                if (!user) {
-                    next(new ErrorHandler("User not found", 404))
-                    return;
-                }
+        // async getSingleUser(req, res, next) {
+        //     try {
+        //         let user = await Users.findById(req.params.id);
+        //         if (!user) {
+        //             next(new ErrorHandler("User not found", 404))
+        //             return;
+        //         }
 
-                return res.status(200).json({ success: true, user })
+        //         return res.status(200).json(user)
 
-            } catch (error) {
-                next(error)
-            }
+        //     } catch (error) {
+        //         next(error)
+        //     }
 
 
-        },
+        // },
 
 
         async deleteUser(req, res, next) {
@@ -289,6 +289,31 @@ function userController() {
                 next(error)
             }
 
+        },
+        async updateRole(req, res, next) {
+            try {
+                const { userId } = req.user._id; // Assuming you have the userId as a parameter in your route
+                const { role } = req.body;
+        
+                // Find the user by ID
+                const user = await Users.findById(userId);
+        
+                if (!user) {
+                    return next(new ErrorHandler("User not found", 404));
+                }
+        
+                // Update user properties
+                if (role) user.role = role;
+        
+                // Save the updated user
+                await user.save();
+        
+                // Optionally, you can generate a new JWT token if needed
+                jwtToken(user, res, 200);
+        
+            } catch (error) {
+                next(error);
+            }
         },
 
 

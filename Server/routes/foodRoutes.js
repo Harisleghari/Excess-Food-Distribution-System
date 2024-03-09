@@ -17,5 +17,6 @@ foodRouter.post("/setAvailability/:id", isAuthenticated, foodController().setAva
 foodRouter.post("/rate/:id", isAuthenticated, foodController().rateFood);
 foodRouter.post("/uploadImage", isAuthenticated, upload.single('image'), foodController().uploadImage);
 foodRouter.post("/acceptFood", foodController().acceptFood);
+foodRouter.post("/nearestFood", foodController().nearestFood);
 
 module.exports = foodRouter;

@@ -1,15 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import './donatedActivity';
 import React, { useState, useEffect } from "react";
 import { slice } from "lodash";
 import axios from "axios";
 import LoadMore from "../components/LoadMore";
-// import Card from 'react-bootstrap/Card';
-// import doner1 from '../assets/doner-1.png';
-// import doner2 from '../assets/doner-2.png';
-// import doner3 from '../assets/doner-3.png';
-// import { CiLocationOn } from 'react-icons/ci';
-// import Button from '../components/button';
 import CardDonor from '../components/CardDonor';
+import { Vortex } from 'react-loader-spinner'
 
 
 
@@ -20,85 +17,77 @@ const DonatedActivity = () => {
     const initialPosts = slice(post, 0, index);
     const loadMore = () => {
         setIndex(index + 3);
-        console.log(index);
         if (index >= post.length) {
             setIsCompleted(true);
         } else {
             setIsCompleted(false);
         }
     };
+    let [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         const authToken = localStorage.getItem('token');
-        axios.get("http://localhost:5000/api/user/getFoods",{
+        console.log(authToken)
+        axios.get("http://localhost:5000/api/user/getFoods", {
             headers: {
                 Authorization: `Bearer ${authToken}` // Include JWT token in the Authorization header
             }
         })
             .then((response) => {
+                console.log("hi im here")
                 setPost(response.data);
-                console.log(response.data);
+                setIsLoading((isLoading = false));
             })
             .catch((e) => console.log(e));
     }, []);
 
+    const styles = {
+        container: {
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '100vh', // Adjust this value as needed to center vertically
+        },
+      };
+
     return (
         <>
-            <div className='don'>
-                <div className='doner-t'>
-                    <h1><b>Donated Activity</b></h1>
+            {isLoading ? (
+                <div style={styles.container}>
+                    <Vortex
+                        visible={true}
+                        height="80"
+                        width="80"
+                        ariaLabel="vortex-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="vortex-wrapper"
+                        colors={['pink', 'white', 'blue', 'yellow', 'orange', 'purple']}
+                    />
                 </div>
-                {/* <div className='doner'>
-                    <Card className='card-d'>
-                        <Card.Img variant="top" src={doner1} />
-                        <Card.Body>
-                            <Card.Title>Spring Roll</Card.Title>
-                            <Card.Text>
-                                <div className='card-inner d-flex justify-content-between align-items-center'>
-                                    <p>Hamza</p>
-                                    <p><CiLocationOn />1km</p>
-                                    <p>30min</p>
-                                </div>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card className='card-d'>
-                        <Card.Img variant="top" src={doner2} />
-                        <Card.Body>
-                            <Card.Title>Mixed Salad</Card.Title>
-                            <Card.Text>
-                                <div className='card-inner'>
-                                    <p>Ahmed</p>
-                                    <p><CiLocationOn />0.5km</p>
-                                    <p>1h</p>
-                                </div>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <Card className='card-d'>
-                        <Card.Img variant="top" src={doner3} />
-                        <Card.Body>
-                            <Card.Title>Chowmein</Card.Title>
-                            <Card.Text>
-                                <div className='card-inner'>
-                                    <p>Aqsa</p>
-                                    <p><CiLocationOn />2km</p>
-                                    <p>2h</p>
-                                </div>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </div> */}
-            </div>
-            <div>
-                <ul className="d-flex flex-wrap">
-                    <CardDonor initialPosts={initialPosts} />
-                </ul>
+            ) : (
+                <div>
+                    <div className='don'>
+                        <div className='doner-t'>
+                            <h1><b>Donated Activity</b></h1>
+                        </div>
+                    </div>
+                    {
+                        post.length > 0 ? <div>
+                            <div>
+                                <ul className="d-flex flex-wrap">
+                                    <CardDonor initialPosts={initialPosts} />
+                                </ul>
 
-            </div>
-            <div className='b'>
-                {/* <Button text={['Show More ...', '#']} /> */}
-                <LoadMore isCompleted={isCompleted} loadMore={loadMore} />
-            </div>
+                            </div>
+                            <div className='b'>
+                                {post > 0 && <LoadMore isCompleted={isCompleted} loadMore={loadMore} />}
+
+                            </div>
+                        </div> : <h3 className='text-center'>No Posts Available</h3>
+                    }</div>
+            )}
+
+
+
         </>
     )
 }

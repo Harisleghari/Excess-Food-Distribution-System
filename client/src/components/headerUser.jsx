@@ -6,13 +6,26 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { PopupMenu } from "react-simple-widgets";
 import { Link } from 'react-router-dom';
+// import { useEffect, useState } from 'react';
+// import axios from 'axios';
 
 const HeaderUser = () => {
-    // const [dropdownOpen, setDropdownOpen] = useState(false);
+    // const [detailList, setDetailList] = useState();
+    // const authToken = localStorage.getItem('token');
 
-    // const toggleDropdown = () => {
-    //     setDropdownOpen(!dropdownOpen);
-    // };
+    // useEffect(() => {
+    //     axios
+    //         .get("http://localhost:5000/api/user/me", {
+    //             headers: {
+    //                 Authorization: `Bearer ${authToken}` // Include JWT token in the Authorization header
+    //             }
+    //         })
+    //         .then((response) => {
+    //             setDetailList(response.data);
+    //             console.log(response.data)
+    //         })
+    //         .catch((e) => console.log(e));
+    // }, [authToken]);
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary header" sticky="top" >
@@ -37,8 +50,8 @@ const HeaderUser = () => {
                                             <img className='bar-i' src="https://cdn-icons-png.freepik.com/256/3237/3237472.png" alt="pic" />
                                         </div>
 
-                                        <h5 className="text-center mb-0">Haris Leghari</h5>
-                                        <p className="text-center mb-2">harisleghari61@gmail.com</p>
+                                        {/* <h5 className="text-center mb-0">{detailList.user.name}</h5> */}
+                                        {/* <p className="text-center mb-2">{detailList.user.email}</p> */}
 
                                         <hr />
 
@@ -60,18 +73,15 @@ const HeaderUser = () => {
                                             className="list-group list-group-flush"
                                             style={{ margin: "0 -24px 0" }}
                                         >
-                                            <Link style={{textDecoration: 'none'}} to="/userHome">
+                                            <Link style={{ textDecoration: 'none' }} to="/userHome">
                                                 <button className="list-group-item list-group-item-action px-4">
                                                     <small>Home</small>
                                                 </button>
                                             </Link>
 
-                                            <button className="list-group-item list-group-item-action px-4">
+                                            {/* <button className="list-group-item list-group-item-action px-4">
                                                 <small>Profile</small>
-                                            </button>
-                                            <button className="list-group-item list-group-item-action px-4">
-                                                <small>Stats</small>
-                                            </button>
+                                            </button> */}
                                         </div>
 
                                         <hr style={{ margin: "0 -24px 24px" }} />

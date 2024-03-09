@@ -27,24 +27,31 @@ const foodSchema = new mongoose.Schema({
         contentType: String,
     },
     location: {
-        lat: String,
-        lng: String,
+        type: { type: String, required: true }, // Specify the type as GeoJSON
+        coordinates: [] // Specify the field as an array of numbers
     },
     date: {
         type: Date,
         default: Date.now,
     },
-    available:{
+    available: {
         type: Boolean,
         default: true,
     },
-    stars:{
+    stars: {
         type: Number,
-        default: 0, 
-        max:5,
-        min:0
-    }
+        default: 0,
+        max: 5,
+        min: 0
+    },
+    phone: {
+        type: Number,
+        required: true,
+    },
 }, { timestamps: true });
+// Create a geospatial index for the location field
+foodSchema.index({ location: "2dsphere" });
+// Virtual property to convert image to base64
 foodSchema.virtual('imageBase64').get(function () {
     if (this.image && this.image.data && this.image.contentType) {
         return `data:${this.image.contentType};base64,${this.image.data.toString('base64')}`;

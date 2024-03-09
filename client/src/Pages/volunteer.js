@@ -49,7 +49,10 @@ const VolunteerPage = () => {
             pantries, or support and maintain local community gardens (where
             applicable).
           </p>
-          <Button text={["Join as Volunteer", '/volunteerForm']} />
+          <div className="text-center">
+          <Button className="text-center" text={["Join as Volunteer", '/volunteerForm']} />
+          </div>
+          
         </div>
       </div>
 

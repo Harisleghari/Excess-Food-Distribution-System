@@ -1,7 +1,7 @@
 
-import AcceptedActivity from '../layout/acceptedActivity';
+// import AcceptedActivity from '../layout/acceptedActivity';
 import DonatedActivity from '../layout/donatedActivity';
-import VolunteeredActivity from '../layout/volunteeredActivity';
+// import VolunteeredActivity from '../layout/volunteeredActivity';
 
 function UserHome() {
 
@@ -9,8 +9,8 @@ function UserHome() {
     <div>
       <div>
         <DonatedActivity />
-        <AcceptedActivity />
-        <VolunteeredActivity />
+        {/* <AcceptedActivity />
+        <VolunteeredActivity /> */}
       </div>
     </div>
   );

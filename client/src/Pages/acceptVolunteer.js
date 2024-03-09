@@ -1,10 +1,10 @@
-import './acceptPage.css';
+import './acceptVolunteer.css';
 import axios from "axios"
 import React, { useState, useEffect } from 'react';
 import LoadMore from "../components/LoadMore";
 import { slice } from "lodash";
 // import CardDonor from '../components/CardDonor';
-import AccepterListing from '../components/AccepterListing';
+import VolunteerListing from '../components/VolunteerListing';
 
 
 
@@ -74,7 +74,7 @@ const Accept = () => {
 
   const handleBtn = async () => {
     try {
-      const nearestPost = await axios.post("http://localhost:5000/api/food/nearestFood", {
+      const nearestPost = await axios.post("http://localhost:5000/api/volunteer/nearestVolunteer", {
         "accepterLongitude": accepterLocation.longitude,
         "accepterLatitude": accepterLocation.latitude
 
@@ -96,21 +96,21 @@ const Accept = () => {
       <div className="a-1">
         <div className="a-1-1">
           <h1>
-            <b>Find Food</b>
+            <b>Find Volunteer</b>
           </h1>
           <p>
-            Looking for assistance in finding food? EFDS can help. We
+            Looking for assistance in finding Volunteer? EFDS can help. We
             work with a variety of food donors and volunteers to connect those
             in need with fresh, nutritious meals.
             <br />
             Don't let hunger get in the way of living a healthy, active
-            lifestyle. Get started with EFDS today and find the food
+            lifestyle. Get started with EFDS today and find the Volunteer
             you need.
           </p>
         </div>
         <div className="a-1-2">
           <button className="a-1-2-btn-1">
-            <b>Find Food</b>
+            <b>Find Volunteer</b>
           </button>
           {/* <button className="a-1-2-btn-2">
             <b>Volunteer</b>
@@ -118,7 +118,7 @@ const Accept = () => {
         </div>
         <div className="a-1-3">
           <h3>Search Options</h3>
-          <h3>Need Help Finding the food</h3>
+          <h3>Need Help Finding the Volunteer</h3>
           {/* <div className="a-1-3-1">
             <input
               type="number"
@@ -137,7 +137,7 @@ const Accept = () => {
         <div>
           <div>
             <ul className="d-flex flex-wrap">
-              <AccepterListing initialPosts={initialPosts} />
+              <VolunteerListing initialPosts={initialPosts} />
             </ul>
 
           </div>

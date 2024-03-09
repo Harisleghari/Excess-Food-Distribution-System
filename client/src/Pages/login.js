@@ -22,7 +22,7 @@ function Login() {
         console.log("Login successful");
         console.log(localStorage.getItem("token"));
         // Execute this code wherever you want to trigger a page reload
-        navigate("/userHome");
+        navigate("/doner");
         window.location.reload();
       } else {
         // Handle login failure, e.g., display an error message.

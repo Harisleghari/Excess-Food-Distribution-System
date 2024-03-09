@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import "./donationPage.css";
 import donation from '../assets/donation.png';
 import React, { useState } from "react";
@@ -11,11 +13,10 @@ const Donation = () => {
   const [food, setFood] = useState("");
   const [prefTime, setPrefTime] = useState("");
   const [quantity, setQuantity] = useState("");
-  // const [pic, setPic] = useState([]);
+  const [phone, setPhone] = useState();
   const [pic, setPic] = useState();
 
   const navigate = useNavigate();
-  // const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YzMxMWRmZGQxMDZmY2JjZDAwZTJjZCIsImlhdCI6MTcwODQzNzg3MSwiZXhwIjoxNzA4NjEwNjcxfQ.k_6pVf3j1a_sL6VcQeYNyqtYtgdVkwMOH9Ek35yW0Q4";
   const authToken = localStorage.getItem('token');
 
   const createDonation = async (event) => {
@@ -27,6 +28,7 @@ const Donation = () => {
       formData.append('pickup', pickup);
       formData.append('food', food);
       formData.append('quantity', quantity);
+      formData.append('phone', phone);
       formData.append('prefTime', prefTime);
       formData.append('image', pic); // Assuming 'pic' is the image file
       
@@ -101,6 +103,16 @@ const Donation = () => {
                 value={quantity}
                 placeholder="0"
                 onChange={(e) => setQuantity(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="form-group">
+              <Form.Label className="form-label">Phone No </Form.Label>
+              <Form.Control
+                className="form-feild"
+                type="number"
+                value={phone}
+                placeholder="+92 336*******"
+                onChange={(e) => setPhone(e.target.value)}
               />
             </Form.Group>
             <Form.Group className="form-group">

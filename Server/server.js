@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const cookieParser = require("cookie-parser");
 const userRouter = require("./routes/userRoutes");
+const volunteerRouter = require("./routes/volunteerRoutes");
 const foodRouter = require("./routes/foodRoutes"); // Import foodRoutes
 const badgeRouter = require("./routes/badgeRoutes");
 const orderRouter = require("./routes/orderRoutes");
@@ -22,6 +23,7 @@ app.use(cors()); // Enable CORS for all routes
 
 //Routes
 app.use("/api/user", userRouter);
+app.use("/api/volunteer", volunteerRouter);
 app.use("/api/food", foodRouter); // Use foodRoutes
 app.use("/api/badge", badgeRouter);
 app.use("/api/order", orderRouter);
